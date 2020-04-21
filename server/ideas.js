@@ -1,8 +1,16 @@
  const ideaRouter = require('express').Router();
  
+ const { 
+    addToDatabase,
+    getAllFromDatabase,
+    getFromDatabaseById,
+    updateInstanceInDatabase,
+    deleteFromDatabasebyId,
+  } = require('./db');
+  
  // Ideas Routes
 ideaRouter.get('/ideas', (req, res, next) => {
-
+    res.send(getAllFromDatabase('ideas'))
 });
 
 ideaRouter.post('/ideas', (req, res, next) => {
