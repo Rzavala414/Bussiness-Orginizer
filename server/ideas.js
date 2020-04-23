@@ -1,5 +1,5 @@
  const ideaRouter = require('express').Router();
-
+ const checkMillionDollarIdea = require('./checkMillionDollarIdea.js')
  const { 
     addToDatabase,
     getAllFromDatabase,
@@ -20,25 +20,25 @@
   });
 
  // Ideas Routes
-ideaRouter.get('/ideas', (req, res, next) => {
+ideaRouter.get('/ideas',checkMillionDollarIdea, (req, res, next) => {
     res.send(getAllFromDatabase('ideas'))
 });
 
-ideaRouter.post('/ideas', (req, res, next) => {
+ideaRouter.post('/ideas',checkMillionDollarIdea, (req, res, next) => {
     const newIdea = addToDatabase('ideas', req.body);
     res.status(201).send(newIdea);
 });
 
-ideaRouter.get('/ideas/:ideaId', (req, res, next) => {
+ideaRouter.get('/ideas/:ideaId', checkMillionDollarIdea, (req, res, next) => {
         res.send(req.idea)
 });
 
-ideaRouter.put('/ideas/:ideaId', (req, res, next) => {
+ideaRouter.put('/ideas/:ideaId', checkMillionDollarIdea, (req, res, next) => {
     const updateIdea = updateInstanceInDatabase('ideas', req.body)
     res.send(updateIdea);
 });
 
-ideaRouter.delete('/ideas/:ideaId', (req, res, next) => {
+ideaRouter.delete('/ideas/:ideaId', checkMillionDollarIdea, (req, res, next) => {
    const deleted = res.send(deleteFromDatabasebyId('ideas', req.params.id));
 
    if(deleted){
