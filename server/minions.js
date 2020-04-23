@@ -48,4 +48,8 @@ minionsRouter.get('/minions', (req, res, next) => {
     res.send();
   });
 
+  minionsRouter.get('/minions/work', function(request, response, next){
+    
+  });
+
 module.exports = minionsRouter;

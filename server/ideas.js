@@ -1,4 +1,7 @@
  const ideaRouter = require('express').Router();
+/*
+* MILLION DOLLOAR IDEA FUNCTION ISN'T FINISHED!!!!
+*/
  const checkMillionDollarIdea = require('./checkMillionDollarIdea.js')
  const { 
     addToDatabase,
