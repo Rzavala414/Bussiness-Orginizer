@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const apiRouter = require('./server/api');
-module.exports = app;
+
 
 /* Do not change the following line! It is required for testing and allowing
 *  the frontend application to interact as planned with the api server
